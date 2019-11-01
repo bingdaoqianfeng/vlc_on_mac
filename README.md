@@ -1,2 +1,2 @@
-# vlc_on_mac
+# build vlc_on_mac
 how to build vlc on mac
