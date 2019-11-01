@@ -40,7 +40,8 @@ vlcSetBaseEnvironment() {
     export OBJC="$(xcrun --find clang)"
     export OBJCXX="$(xcrun --find clang++)"
 
-    python3Path=$(echo /Library/Frameworks/Python.framework/Versions/3.*/bin | awk '{print $1;}')
+    #python3Path=$(echo /Library/Frameworks/Python.framework/Versions/3.*/bin | awk '{print $1;}')
+    python3Path="/usr/local/bin/"
     if [ ! -d "$python3Path" ]; then
         python3Path=""
     fi
@@ -107,8 +108,8 @@ vlcSetContribEnvironment() {
     export CXXFLAGS="-Werror=partial-availability"
     export OBJCFLAGS="-Werror=partial-availability"
 
-    export EXTRA_CFLAGS="-isysroot $SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION"
-    export EXTRA_LDFLAGS="-isysroot $SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION"
+    export EXTRA_CFLAGS="-isysroot $SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION -I/usr/local/include"
+    export EXTRA_LDFLAGS="-isysroot $SDKROOT -mmacosx-version-min=$MINIMAL_OSX_VERSION -DMACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION -L/usr/local/lib/"
     export XCODE_FLAGS="MACOSX_DEPLOYMENT_TARGET=$MINIMAL_OSX_VERSION -sdk $SDKROOT WARNING_CFLAGS=-Werror=partial-availability"
 }
 
@@ -124,7 +125,8 @@ vlcUnsetContribEnvironment() {
     unset XCODE_FLAGS
 
     # Enable debug symbols by default
-    export CFLAGS="-g"
+    #export CFLAGS="-g -I/usr/local/Cellar/libxml2/2.9.9_2/include/ -I-I/usr/local/Cellar/libxml2/2.9.9_2/include/libxml2/"
+    export CFLAGS="-g -I/usr/local/opt/libxml2/include/libxml2/ -I/usr/local/opt/libxml2/include/"
     export CXXFLAGS="-g"
     export OBJCFLAGS="-g"
 }
