@@ -136,6 +136,7 @@ fi
 make > $out
 spopd
 
+echo "tool build finish"
 #
 # vlc/contribs
 #
@@ -143,6 +144,7 @@ spopd
 vlcSetSymbolEnvironment
 vlcSetContribEnvironment "$MINIMAL_OSX_VERSION"
 
+echo "build contribs"
 info "Building contribs"
 spushd "${vlcroot}/contrib"
 
@@ -151,9 +153,12 @@ if [ "$REBUILD" = "yes" ]; then
     rm -rf $TRIPLET
 fi
 mkdir -p contrib-$TRIPLET && cd contrib-$TRIPLET
+echo "contribs bootstrap"
 ../bootstrap --build=$TRIPLET --host=$TRIPLET > $out
 
+
 if [ "$CONTRIBFROMSOURCE" = "yes" ]; then
+    echo "download 3rd library"
     make list
     make fetch
     make -j$JOBS .gettext
@@ -170,6 +175,7 @@ fi
 fi
 spopd
 
+echo "contribs build success"
 
 vlcUnsetContribEnvironment
 
@@ -209,6 +215,7 @@ if [ "${vlcroot}/configure" -nt Makefile ]; then
       $VLC_CONFIGURE_ARGS > $out
 fi
 
+echo "vlc config success"
 
 #
 # make
@@ -222,14 +229,17 @@ fi
 info "Running make -j$JOBS"
 make -j$JOBS
 
+echo "make vlc obj success"
 info "Preparing VLC.app"
 make VLC.app
 
+echo "PACKAGETYPE: $PACKAGETYPE"
 
 if [ "$PACKAGETYPE" = "u" ]; then
     info "Copying app with debug symbols into VLC-debug.app and stripping"
     rm -rf VLC-debug.app
     cp -Rp VLC.app VLC-debug.app
+    echo "Copying app with debug symbols into VLC-debug.app and stripping success"
 
     # Workaround for breakpad symbol parsing:
     # Symbols must be uploaded for libvlc(core).dylib, not libvlc(core).x.dylib
@@ -248,9 +258,11 @@ if [ "$PACKAGETYPE" = "u" ]; then
     info "Building VLC release archive"
     make package-macosx-release
     shasum -a 512 vlc-*-release.zip
+    echo "Building VLC release archive success"
 elif [ "$PACKAGETYPE" = "n" -o "$PACKAGE" = "yes" ]; then
     info "Building VLC dmg package"
     make package-macosx
+    echo "Building VLC dmg package success"
 fi
 
 if [ ! -z "$VLCBUILDDIR" ]; then
