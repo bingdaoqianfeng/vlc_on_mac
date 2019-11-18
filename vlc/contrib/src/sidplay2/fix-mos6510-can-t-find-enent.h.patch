@@ -1,0 +1,24 @@
+From 962c6a00ee20090424839019d57f7e3c1fc81b17 Mon Sep 17 00:00:00 2001
+From: liuyuxin <liuyuxin@kuaishou.com>
+Date: Mon, 18 Nov 2019 18:59:40 +0800
+Subject: [PATCH 2/5] fix mos6510 can't find enent.h
+
+---
+ libsidplay/src/mos6510/cycle_based/mos6510c.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/libsidplay/src/mos6510/cycle_based/mos6510c.h b/libsidplay/src/mos6510/cycle_based/mos6510c.h
+index 2b5e1e3..05fd947 100644
+--- a/libsidplay/src/mos6510/cycle_based/mos6510c.h
++++ b/libsidplay/src/mos6510/cycle_based/mos6510c.h
+@@ -109,6 +109,7 @@
+ #include <stdio.h>
+ #include "sidtypes.h"
+ #include "sidendian.h"
++#include "../../../include/sidplay/event.h"
+ 
+ class MOS6510: public C64Environment, public Event
+ {
+-- 
+2.21.0 (Apple Git-122)
+

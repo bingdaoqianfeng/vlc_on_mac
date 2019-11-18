@@ -1,0 +1,25 @@
+From 9c28cf7f7af37521325cef953833986c66a13fe4 Mon Sep 17 00:00:00 2001
+From: liuyuxin <liuyuxin@kuaishou.com>
+Date: Mon, 18 Nov 2019 19:13:46 +0800
+Subject: [PATCH 5/5] fix event.cpp can't find enent.h
+
+---
+ libsidplay/src/event.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libsidplay/src/event.cpp b/libsidplay/src/event.cpp
+index bfa715c..2ad2039 100644
+--- a/libsidplay/src/event.cpp
++++ b/libsidplay/src/event.cpp
+@@ -50,7 +50,7 @@
+  ***************************************************************************/
+ 
+ #include <string.h>
+-#include "event.h"
++#include "../include/sidplay/event.h"
+ 
+ #define EVENT_TIMEWARP_COUNT 0x0FFFFF
+ 
+-- 
+2.21.0 (Apple Git-122)
+

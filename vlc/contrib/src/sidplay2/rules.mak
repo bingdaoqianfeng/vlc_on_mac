@@ -25,6 +25,10 @@ sidplay-libs: sidplay-libs-$(SID_VERSION).tar.gz .sum-sidplay2
 	$(APPLY) $(SRC)/sidplay2/sidplay2-string.patch
 	$(APPLY) $(SRC)/sidplay2/sidplay-fix-ln-s.patch
 	$(APPLY) $(SRC)/sidplay2/sidplay2-resid-dependency.patch
+	$(APPLY) $(SRC)/sidplay2/fix-event.cpp-can-t-find-enent.h.patch
+	$(APPLY) $(SRC)/sidplay2/fix-mos6510-can-t-find-enent.h.patch
+	$(APPLY) $(SRC)/sidplay2/fix-mos6526-can-t-find-enent.h.patch
+	$(APPLY) $(SRC)/sidplay2/fix-mos656x-can-t-find-enent.h.patch
 	$(MOVE)
 
 .sidplay2: sidplay-libs

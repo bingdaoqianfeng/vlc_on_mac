@@ -1,0 +1,25 @@
+From 8aa661412d929770299684a6a3ae466d36208e1d Mon Sep 17 00:00:00 2001
+From: liuyuxin <liuyuxin@kuaishou.com>
+Date: Mon, 18 Nov 2019 19:08:04 +0800
+Subject: [PATCH 3/5] fix mos6526 can't find enent.h
+
+---
+ libsidplay/src/mos6526/mos6526.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libsidplay/src/mos6526/mos6526.h b/libsidplay/src/mos6526/mos6526.h
+index 1cb665c..8cee8c2 100644
+--- a/libsidplay/src/mos6526/mos6526.h
++++ b/libsidplay/src/mos6526/mos6526.h
+@@ -85,7 +85,7 @@
+ #define _mos6526_h_
+ 
+ #include "component.h"
+-#include "event.h"
++#include "../../include/sidplay/event.h"
+ 
+ class MOS6526: public component
+ {
+-- 
+2.21.0 (Apple Git-122)
+

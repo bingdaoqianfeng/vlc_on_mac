@@ -1,0 +1,25 @@
+From fa2a4d47539e40bebc5fe588fce78a8df75303c3 Mon Sep 17 00:00:00 2001
+From: liuyuxin <liuyuxin@kuaishou.com>
+Date: Mon, 18 Nov 2019 19:09:41 +0800
+Subject: [PATCH 4/5] fix mos656x can't find enent.h
+
+---
+ libsidplay/src/mos656x/mos656x.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libsidplay/src/mos656x/mos656x.h b/libsidplay/src/mos656x/mos656x.h
+index ef81202..ee803f1 100644
+--- a/libsidplay/src/mos656x/mos656x.h
++++ b/libsidplay/src/mos656x/mos656x.h
+@@ -19,7 +19,7 @@
+ #define _mos656x_h_
+ 
+ #include "component.h"
+-#include "event.h"
++#include "../../include/sidplay/event.h"
+ 
+ typedef enum
+ {
+-- 
+2.21.0 (Apple Git-122)
+
