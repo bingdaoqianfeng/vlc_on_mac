@@ -22,3 +22,8 @@ cd Pods/MobileVLCKit
 rm MobileVLCKit.framework
 ln -s /yourrootpath/VLCKit/build/MobileVLCKit.framework/
 
+# about opengl document
+# Vertex Shader Program
+https://www.jianshu.com/p/60c15b51c601
+# GPU 编程与CG 语言之阳春白雪下里巴人.pdf
+https://vdisk.weibo.com/s/amPF49uDZe8sj/1455848634
