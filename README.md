@@ -3,6 +3,9 @@ cd vlc
 mkdir build
 cd build
 ../extras/package/macosx/build.sh -c -k"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/"
+#brew install libxml2
+#export PATH="/usr/local//opt/libxml2/bin/:$PATH"
+#export CPPFLAGS="-I/usr/local/opt/libxml2/include/libxml2/"
 
 
 # how to build ios vlc
