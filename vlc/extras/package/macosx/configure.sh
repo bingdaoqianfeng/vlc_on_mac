@@ -29,6 +29,7 @@ OPTIONS="
         --enable-macosx-avfoundation
         --disable-skins2
         --disable-xcb
+        --enable-debug
         --disable-caca
         --disable-pulse
         --disable-sdl-image

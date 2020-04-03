@@ -319,13 +319,13 @@ HOSTVARS_MESON := $(HOSTTOOLS) $(MESON_HOST_FLAGS)
 endif
 
 # Add these flags after Meson consumed the CFLAGS/CXXFLAGS
-ifndef WITH_OPTIMIZATION
+#ifndef WITH_OPTIMIZATION
 CFLAGS := $(CFLAGS) -g -O0
 CXXFLAGS := $(CXXFLAGS) -g -O0
-else
-CFLAGS := $(CFLAGS) -g -O2
-CXXFLAGS := $(CXXFLAGS) -g -O2
-endif
+#else
+#CFLAGS := $(CFLAGS) -g -O2
+#CXXFLAGS := $(CXXFLAGS) -g -O2
+#endif
 
 HOSTTOOLS := \
 	CC="$(CC)" CXX="$(CXX)" LD="$(LD)" \
@@ -405,11 +405,11 @@ endif
 
 MESON = meson --default-library static --prefix "$(PREFIX)" --backend ninja \
 	-Dlibdir=lib
-ifndef WITH_OPTIMIZATION
+#ifndef WITH_OPTIMIZATION
 MESON += --buildtype debug
-else
-MESON += --buildtype release
-endif
+#else
+#MESON += --buildtype release
+#endif
 
 ifdef HAVE_CROSS_COMPILE
 MESON += --cross-file $(abspath crossfile.meson)
@@ -540,11 +540,11 @@ endif
 # CMake toolchain
 toolchain.cmake:
 	$(RM) $@
-ifndef WITH_OPTIMIZATION
+#ifndef WITH_OPTIMIZATION
 	echo "set(CMAKE_BUILD_TYPE Debug)" >> $@
-else
-	echo "set(CMAKE_BUILD_TYPE Release)" >> $@
-endif
+#else
+#	echo "set(CMAKE_BUILD_TYPE Release)" >> $@
+#endif
 	echo "set(CMAKE_SYSTEM_PROCESSOR $(ARCH))" >> $@
 	if test -n "$(CMAKE_SYSTEM_NAME)"; then \
 		echo "set(CMAKE_SYSTEM_NAME $(CMAKE_SYSTEM_NAME))" >> $@; \
